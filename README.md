@@ -2,26 +2,53 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.
 
-## Development server
+## Storybook
+```
+ng run charts:storybook
+```
+## Задание 1
+*Определить базовую библиотеку для отрисовки графиков – подготовить плюсы/минусы
+каждой библиотеки.*
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
+### g2plot
+Имеет достаточный набор готовых графиков с легкой интеграцией в проект. Малая кастомизация, что добалвяет сложность в модификации нестандартных элементов.
 
-## Code scaffolding
+Подойдет для базовых сценариев с отрисовкой простых графов.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### echarts
+В сравнении с g2plot имеет поддрежку большего количества типов графиков (3д, карты и др.), более оптимизирована при работе с большими данными. При этом используется сообществом используется более массово и имеет объемную документацию.
 
-## Build
+Из минусов: больше вес (чем у g2plot) и интеграция с ангуляром с помощью ngx-ehcarts
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### prizm-ui 
+Представляет собой набор шаблонов проектирования и компонентов в едином процесс дизайне, которые подхояд для разработки комплексного промышленного продукта.
 
-## Running unit tests
+## Задание 2
+*Создать основу для проекта
+Критерии «готовности»:*
+1. *в package. json-е указаны минимально необходимые зависимости (все что в стеке указано).*
+2. *Проект можно собрать в библиотеку Creating Libraries • Angular*
+3. *Пакет содержит простой компонент «график» без входных параметров-просто чтобы
+проверить работоспособность.*
+4. *Можно добавить созданную библиотеку в проект и вставить компонент «график» в проект.*
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+Создана бибилиотека `charts`, которая содержит `ChartEchartsComponent`. 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Проект с дополнительными зависимости (prizm-ui, g2plot) вынесен в отдельную ветку `all-dependencies`.
 
-## Further help
+## Задание 3
+*Подготовить Storybook. Расширить простой компонент «график» до объекта, который принимает набор точек «время»-«значение» для одной линии. Настроить для разработки Storybook, чтобы можно было в dev-режиме менять передаваемый набор точек.*
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+В библиотеку добавлен storybook. Настроена демонстрация компонента с возможностью редактирования `chartData` параметра.
+
+## Задание 4
+*Масштабирование тренда по колесику мышки динамически в зависимости от положения курсора.*
+
+---
+
+Добавлен слайдер с требуемым функционалом.
